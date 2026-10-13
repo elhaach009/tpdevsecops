@@ -1,0 +1,3 @@
+# Faux positifs acceptés, un "fingerprint" par ligne (format : commit:fichier:règle:ligne).
+# Le fingerprint est affiché par gitleaks dans son rapport.
+# N'ajouter ici QUE des faux positifs vérifiés, jamais un vrai secret.

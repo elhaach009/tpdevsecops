@@ -1,0 +1,14 @@
+# Configuration Gitleaks du projet democyber
+# On part des règles par défaut (AWS, GitHub, Docker, clés privées, etc.)
+title = "Gitleaks config - democyber"
+
+[extend]
+useDefault = true
+
+# Exclusions globales : fichiers générés ou sans intérêt pour la détection
+[allowlist]
+description = "Fichiers ignorés par le scan"
+paths = [
+  '''target/''',
+  '''(.*?)\.(jpg|jpeg|png|gif|svg|ico)$''',
+]
