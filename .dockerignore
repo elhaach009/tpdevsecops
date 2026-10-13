@@ -1,0 +1,17 @@
+# Ne pas envoyer au démon Docker ce qui est inutile pour l'image
+.git
+.github
+.gitignore
+.gitleaks.toml
+.gitleaksignore
+.idea
+.vscode
+*.iml
+src
+README.md
+Dockerfile
+.dockerignore
+
+# Dans target/, garder uniquement le jar exécutable
+target/*
+!target/democyber-0.0.1-SNAPSHOT.jar
