@@ -29,7 +29,7 @@ Conditions évaluées sur le nouveau code (API `qualitygates/project_status`) :
 | Lignes dupliquées (nouveau code) | > 3 % | 0,0 % | OK |
 | Security Hotspots revus | < 100 % | 100 % | OK |
 
-**Pourquoi Passed :** l'application est très petite (une classe principale et un contrôleur « Bonjour »). Elle ne contient aucune vulnérabilité, aucun bug, aucun code smell, aucun hotspot de sécurité et aucune duplication. Toutes les notes sont donc à A.
+**Pourquoi Passed :** l'application est très petite (une classe principale avec un contrôleur « Bonjour » imbriqué). Elle ne contient aucune vulnérabilité, aucun bug, aucun code smell, aucun hotspot de sécurité et aucune duplication. Toutes les notes sont donc à A.
 
 ## 3. Notes Security / Reliability / Maintainability
 
@@ -43,7 +43,7 @@ Valeurs issues de l'API `measures/component` (notes 1–5 converties en A–E) :
 | Couverture de tests | 60,0 % | – |
 | Duplication | 0,0 % | – |
 
-La couverture de 60 % vient du seul test `contextLoads()` : il démarre le contexte Spring mais n'appelle pas le contrôleur.
+La couverture de 60 % vient des deux tests : `contextLoads()` démarre le contexte Spring et `rootReturnsGreeting()` appelle `GET /` via MockMvc. Le contrôleur est donc couvert. Les lignes non couvertes correspondent à la méthode `main()` (`SpringApplication.run`), qui n'est jamais exécutée par les tests `@SpringBootTest`.
 
 ## 4. Règles à ajouter au Quality Gate (point de vue responsable sécurité)
 
