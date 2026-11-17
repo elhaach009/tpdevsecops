@@ -19,9 +19,7 @@
 
     <properties>
         <java.version>21</java.version>
-        <!-- SonarCloud -->
-        <sonar.organization>elhaach009</sonar.organization>
-        <sonar.projectKey>elhaach009_tpdevsecops</sonar.projectKey>
+        <!-- SonarCloud : organization et projectKey sont passes par la CI (secrets GitHub) -->
         <sonar.host.url>https://sonarcloud.io</sonar.host.url>
         <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
         <jacoco.version>0.8.12</jacoco.version>
