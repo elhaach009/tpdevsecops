@@ -18,6 +18,7 @@ Son intérêt en DevSecOps est le **shift-left** : les problèmes sont détecté
 | Analyse | Quality Gate | Détail |
 |---|---|---|
 | Pull Request #2 | ✅ **Passed** (`OK`) | Les 5 conditions du Quality Gate sont respectées |
+| Branche `main` (après merge) | ✅ **Passed** (`OK`) | Mêmes 5 conditions respectées, mêmes valeurs |
 
 Conditions évaluées sur le nouveau code (API `qualitygates/project_status`) :
 
@@ -33,7 +34,7 @@ Conditions évaluées sur le nouveau code (API `qualitygates/project_status`) :
 
 ## 3. Notes Security / Reliability / Maintainability
 
-Valeurs issues de l'API `measures/component` (notes 1–5 converties en A–E) :
+Valeurs issues de l'API `measures/component` (notes 1–5 converties en A–E). Elles sont identiques pour la PR #2 et pour la branche `main` après le merge :
 
 | Domaine | Note | Nombre de problèmes |
 |---|---|---|
@@ -81,6 +82,7 @@ Les trois outils sont **complémentaires** : Gitleaks protège les secrets, Sona
 4. **Workflow `.github/workflows/ci.yml`** : ajout du job `sonarcloud`, puis chaînage `secret-scan` → `sonarcloud` → `build-and-deploy`.
 5. **Correction** : le premier run a échoué avec une erreur `403` (token / projet SonarCloud non configuré). Après correction côté SonarCloud et nouveau token, le run est passé. `actions/cache` a aussi été mis à jour en v5 (fin de Node 20 sur les runners).
 6. **Pull Request #2** : analyse de la PR, Quality Gate **Passed**.
+7. **Merge dans `main`** : nouvelle analyse de la branche principale, Quality Gate **Passed**, puis build et push de l'image Docker.
 
 Workflow final (job SonarCloud) :
 
@@ -124,5 +126,6 @@ Liens :
 
 - Pull Request : https://github.com/elhaach009/tpdevsecops/pull/2
 - Run GitHub Actions (PR, Quality Gate Passed) : https://github.com/elhaach009/tpdevsecops/actions/runs/44058577229
+- Run GitHub Actions (`main` après merge, Quality Gate Passed + push Docker) : https://github.com/elhaach009/tpdevsecops/actions/runs/44059750471
 - Projet SonarCloud : https://sonarcloud.io/project/overview?id=elhaach009_tpdevsecops
 - Analyse SonarCloud de la PR : https://sonarcloud.io/dashboard?id=elhaach009_tpdevsecops&pullRequest=2
